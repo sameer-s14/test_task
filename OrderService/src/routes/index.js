@@ -1,10 +1,9 @@
-const {Router} = require('express');
-const orderRouter = Router();
-const {createOrder,updateOrderStatus,getAllOrder} = require('../controllers/orders.controller.js');
-const {verifyToken} = require('../middlewares/verifyToken.js');
+import { Router } from 'express';
+import { createOrder, fetchAllOrders, upateOrderStatus } from '../controllers/index.js';
+const router = Router();
 
-orderRouter.post('/',verifyToken,createOrder)
-orderRouter.put('/:orderId',updateOrderStatus)
-orderRouter.get('/',verifyToken,getAllOrder)  
+router.post('/order', createOrder)
+router.patch('/order/:orderId', upateOrderStatus)
+router.get('/order', fetchAllOrders)
 
-module.exports = orderRouter
+export default router

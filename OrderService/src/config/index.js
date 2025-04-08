@@ -1,11 +1,8 @@
-const {config} = require('dotenv') ;
+import { config } from 'dotenv';
+config();
 
-config()
-
-const ENV_VAR = {
+export const ENV_VAR = {
     PORT: process.env.PORT,
-    MONGODB_URI: process.env.MONGODB_URI,
-    JWT_SECRET: process.env.JWT_SECRET,
+    DB_URI: process.env.DB_URI,
+    RABBITMQ_URL: process.env.RABBITMQ_URL
 }
-
-module.exports = ENV_VAR;

@@ -1,5 +1,3 @@
-exports.ORDER_STATUS = {
-    INITIATED: 'intiated',
-    ACCEPTED: 'accepted',
-    DISPATCHED: 'dispatched'
+export const QUEUE_NAMES = {
+    ORDER_CREATED: 'order_created'
 }

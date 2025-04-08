@@ -1,21 +1,5 @@
-const axios = require("axios");
-const { ApiError } = require("../middlewares/error.middleware");
+import mongoose from "mongoose";
 
-const userServiceURL = "http://127.0.0.1:4000";
+export const isValidObjectId = (id) => !!mongoose.isValidObjectId(id);
 
-const verifyTokenFromUserService = async (token) => {
-  try {
-    const { data } = await axios.post(`${userServiceURL}/user/verify-token`, {
-      token,
-    });
-    if (![200, 201]?.includes(data?.statusCode)) {
-      throw new ApiError(data?.message || "Can not verify token");
-    }
-    return data;
-
-  } catch (err) {
-    throw err;
-  }
-};
-
-module.exports = { verifyTokenFromUserService };
+export const convertToObjectId = (id) => new mongoose.Types.ObjectId(id)
